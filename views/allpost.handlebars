@@ -1,0 +1,85 @@
+<h1>Tüm Postlar</h1>
+<hr>
+<table>
+    <thead>
+        <tr>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Resim adı</th>
+            <th>Tarih</th>
+            <th>Aktiflik</th>
+            <th>Araçlar</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+        <tr>
+          <td>{{this.title}}</td>
+          <td>{{this.description}}</td>
+          <td>{{this.image}}</td>
+          <td style="width: 300px;"><small><small>{{this.date}}</small></small></td>
+          {{#if this.active}}
+          <td>Aktif</td>
+          {{else}}
+          <td>Pasif</td>
+          {{/if}}
+          <td>  <!-- LAST CHİLD DİSPLAY FLEX  -->
+            <div>
+            <a href="/setting/edit/{{this._id}}" class="button-yellow">Düzenle</a>
+            <form action="/setting/delete/{{this._id}}" method="POST"><button class="button-red">Sil</button></form>
+            </div>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+</table>
+
+
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr td:last-child div{
+  display: flex;
+}
+.button-yellow{
+  height: 30px;
+  padding: 8px;
+  margin: 0px 4px;
+  background-color: #fed330;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-red{
+  height: 30px;
+  padding: 8px;
+  margin: 0px 4px;
+  background-color: #ff6348;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+</style>

@@ -1,0 +1,20 @@
+<h1>Add Post</h1>
+<hr>
+<form action="/addpost/add" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Title">
+    <textarea name="description"></textarea>
+    <input name="image" type="file" id="file-input"/><br>
+    <input type="radio" name="active" value="true">
+    <label for="active">Aktif</label>
+    <input type="radio" name="active" value="false">
+    <label for="passive">Pasif</label><br>
+    <button class="button">Ekle</button>
+    <br><br>
+</form>
+<script>
+    const url = window.location.href;
+    if(url.indexOf("notfile") !== -1){
+        alertify.alert("Hata !", "Lütfen resim ekleyin.");
+    }
+    
+</script>
